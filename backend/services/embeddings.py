@@ -7,9 +7,6 @@ Handles text chunking, embedding generation, and vector storage/retrieval.
 import logging
 import re
 from typing import Optional
-import chromadb
-from chromadb.config import Settings as ChromaSettings
-from sentence_transformers import SentenceTransformer
 from config import settings
 
 logger = logging.getLogger(__name__)
@@ -21,13 +18,14 @@ class EmbeddingsService:
     COLLECTION_NAME = "document_chunks"
 
     def __init__(self):
-        self._model: Optional[SentenceTransformer] = None
-        self._client: Optional[chromadb.PersistentClient] = None
+        self._model = None
+        self._client = None
         self._collection = None
 
-    def _get_model(self) -> SentenceTransformer:
+    def _get_model(self):
         """Lazy-load the embedding model."""
         if self._model is None:
+            from sentence_transformers import SentenceTransformer
             logger.info(f"Loading embedding model: {settings.embedding_model}")
             self._model = SentenceTransformer(settings.embedding_model)
             logger.info("Embedding model loaded successfully")
@@ -36,6 +34,8 @@ class EmbeddingsService:
     def _get_collection(self):
         """Get or create the ChromaDB collection."""
         if self._collection is None:
+            import chromadb
+            from chromadb.config import Settings as ChromaSettings
             self._client = chromadb.PersistentClient(
                 path=str(settings.chroma_path),
                 settings=ChromaSettings(anonymized_telemetry=False),

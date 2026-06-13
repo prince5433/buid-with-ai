@@ -1,8 +1,6 @@
 import logging
 import json
 from config import settings
-import google.generativeai as genai
-from openai import OpenAI
 
 logger = logging.getLogger(__name__)
 
@@ -12,15 +10,19 @@ class LLMProvider:
     def __init__(self):
         self._openai_client = None
         self._gemini_configured = False
+        self._genai = None
         
         # Configure OpenAI
         if hasattr(settings, "openai_api_key") and settings.openai_api_key:
+            from openai import OpenAI
             self._openai_client = OpenAI(api_key=settings.openai_api_key)
             logger.info("OpenAI client initialized.")
             
         # Configure Gemini
         if settings.gemini_api_key:
+            import google.generativeai as genai
             genai.configure(api_key=settings.gemini_api_key)
+            self._genai = genai
             self._gemini_configured = True
             logger.info("Gemini client initialized.")
 
@@ -48,6 +50,7 @@ class LLMProvider:
         # Fallback to Gemini
         if self._gemini_configured:
             try:
+                genai = self._genai
                 model = genai.GenerativeModel(
                     settings.llm_model,
                     system_instruction=system_instruction,
@@ -95,6 +98,7 @@ class LLMProvider:
         # Fallback to Gemini
         if self._gemini_configured:
             try:
+                genai = self._genai
                 model = genai.GenerativeModel(
                     settings.llm_model,
                     system_instruction=system_instruction,
@@ -149,6 +153,7 @@ class LLMProvider:
         # Fallback to Gemini
         if self._gemini_configured:
             try:
+                genai = self._genai
                 model = genai.GenerativeModel("gemini-2.5-flash") # Use flash for speed, or settings.llm_model
                 
                 response = model.generate_content([
@@ -165,5 +170,18 @@ class LLMProvider:
                 
         raise Exception("No LLM provider available for Vision API.")
 
-# Singleton
-llm_provider = LLMProvider()
+# Lazy singleton
+_llm_provider = None
+
+def get_llm_provider() -> LLMProvider:
+    global _llm_provider
+    if _llm_provider is None:
+        _llm_provider = LLMProvider()
+    return _llm_provider
+
+class _LazyLLMProvider:
+    """Proxy that defers LLMProvider instantiation until first attribute access."""
+    def __getattr__(self, name):
+        return getattr(get_llm_provider(), name)
+
+llm_provider = _LazyLLMProvider()

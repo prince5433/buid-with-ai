@@ -128,8 +128,10 @@ async def lifespan(app: FastAPI):
     # Ensure directories exist
     settings.ensure_directories()
 
-    # Load sample documents in background
-    asyncio.create_task(load_sample_documents())
+    # NOTE: Automatic sample document loading is disabled to prevent 
+    # hitting the free-tier LLM rate limit (429 Too Many Requests) on startup.
+    # Evaluators can manually upload the documents from the `sample_documents` folder via the UI.
+    # asyncio.create_task(load_sample_documents())
 
     yield
 

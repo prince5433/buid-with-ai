@@ -82,7 +82,9 @@ async def process_document(
 
         # === Stage 2: Parse document ===
         await notify_status(task_id, doc_id, "parsing")
-        parsed = parser.parse(file_data, mime_type, filename)
+        parsed = await asyncio.to_thread(
+            parser.parse, file_data, mime_type, filename
+        )
 
         # Store pages and images
         has_any_tables = False
@@ -124,7 +126,8 @@ async def process_document(
         # === Stage 3: Classify document ===
         await notify_status(task_id, doc_id, "classifying")
         all_text = "\n\n".join(p.text for p in parsed.pages if p.text)
-        classification_result = classifier.classify(
+        classification_result = await asyncio.to_thread(
+            classifier.classify,
             text_content=all_text,
             filename=filename,
             page_count=len(parsed.pages),
@@ -138,7 +141,8 @@ async def process_document(
 
         # === Stage 4: Index in vector store ===
         await notify_status(task_id, doc_id, "indexing")
-        chunks_added = embeddings_service.add_document(
+        chunks_added = await asyncio.to_thread(
+            embeddings_service.add_document,
             document_id=doc_id,
             document_name=filename,
             pages=page_data_for_indexing,

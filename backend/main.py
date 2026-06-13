@@ -101,6 +101,9 @@ async def load_sample_documents():
                     )
 
                     logger.info(f"Loaded sample document: {file_path.name}")
+                    
+                    # Sleep to prevent hitting Gemini API rate limits
+                    await asyncio.sleep(4)
 
                 except Exception as e:
                     logger.error(f"Failed to load sample document {file_path.name}: {e}")

@@ -127,7 +127,7 @@ export function getPageImageUrl(documentId: string, pageNumber: number): string 
 export function createUploadWebSocket(taskId: string): WebSocket | null {
   const wsBase = API_BASE.replace('http', 'ws');
   try {
-    return new WebSocket(`${wsBase}/ws/upload-status/${taskId}`);
+    return new WebSocket(`${wsBase}/api/ws/upload-status/${taskId}`);
   } catch {
     console.warn('WebSocket connection failed');
     return null;

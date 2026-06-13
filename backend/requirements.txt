@@ -23,6 +23,10 @@ langgraph==0.2.60
 openai>=1.0.0
 google-generativeai>=0.8.0
 
+# PyTorch CPU-only (much smaller, no CUDA/nvidia packages)
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.12.0+cpu
+
 # Embeddings & Vector Store
 sentence-transformers==3.3.1
 chromadb==0.6.3

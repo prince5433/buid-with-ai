@@ -113,5 +113,57 @@ class LLMProvider:
                 
         raise Exception("No LLM provider available.")
 
+    def extract_text_from_image(self, image_bytes: bytes, mime_type: str = "image/png") -> str:
+        """Extract text from image using Vision API (OpenAI or Gemini fallback)."""
+        import base64
+        
+        prompt = "Extract all text from this image exactly as it appears. If there is no text, return an empty string. Preserve formatting where possible. Do not include any other commentary."
+        
+        # Try OpenAI First
+        if self._openai_client:
+            try:
+                base64_image = base64.b64encode(image_bytes).decode('utf-8')
+                
+                response = self._openai_client.chat.completions.create(
+                    model="gpt-4o-mini",
+                    messages=[
+                        {
+                            "role": "user",
+                            "content": [
+                                {"type": "text", "text": prompt},
+                                {
+                                    "type": "image_url",
+                                    "image_url": {
+                                        "url": f"data:{mime_type};base64,{base64_image}"
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    max_tokens=1500,
+                )
+                return response.choices[0].message.content.strip()
+            except Exception as e:
+                logger.warning(f"OpenAI Vision failed: {e}. Falling back to Gemini.")
+
+        # Fallback to Gemini
+        if self._gemini_configured:
+            try:
+                model = genai.GenerativeModel("gemini-2.5-flash") # Use flash for speed, or settings.llm_model
+                
+                response = model.generate_content([
+                    prompt,
+                    {
+                        "mime_type": mime_type,
+                        "data": image_bytes
+                    }
+                ])
+                return response.text.strip()
+            except Exception as e:
+                logger.error(f"Gemini Vision failed: {e}")
+                raise e
+                
+        raise Exception("No LLM provider available for Vision API.")
+
 # Singleton
 llm_provider = LLMProvider()

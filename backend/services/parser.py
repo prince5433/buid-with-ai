@@ -16,10 +16,10 @@ from typing import Optional
 import pdfplumber
 import fitz  # PyMuPDF
 from PIL import Image, ImageDraw, ImageFont
-import pytesseract
 
 from config import settings
 from security.encryption import encryptor
+from services.llm_provider import llm_provider
 
 logger = logging.getLogger(__name__)
 
@@ -153,7 +153,7 @@ class DocumentParser:
         return ParsedDocument(pages=pages, metadata=metadata)
 
     def _ocr_pdf_page(self, pdf_data: bytes, page_index: int) -> str:
-        """OCR a single PDF page using pytesseract."""
+        """OCR a single PDF page using Vision API."""
         try:
             # Render page to image using PyMuPDF
             doc = fitz.open(stream=pdf_data, filetype="pdf")
@@ -164,85 +164,16 @@ class DocumentParser:
             img_data = pixmap.tobytes("png")
             doc.close()
 
-            # OCR with pytesseract
-            image = Image.open(io.BytesIO(img_data))
-
-            # Preprocessing for better OCR
-            image = self._preprocess_for_ocr(image)
-
-            text = pytesseract.image_to_string(image, lang='eng')
-            return text.strip()
+            # OCR with LLM Vision API
+            text = llm_provider.extract_text_from_image(img_data, mime_type="image/png")
+            return text
 
         except Exception as e:
             logger.warning(f"OCR failed for page {page_index + 1}: {e}")
             return ""
 
     def _preprocess_for_ocr(self, image: Image.Image) -> Image.Image:
-        """
-        Multi-stage image preprocessing for maximum OCR accuracy.
-        
-        Pipeline:
-        1. Convert to grayscale
-        2. Resize small images for better OCR
-        3. Enhance contrast
-        4. Adaptive thresholding (via OpenCV if available, else Pillow)
-        5. Noise removal
-        """
-        # Step 1: Convert to grayscale
-        if image.mode != 'L':
-            image = image.convert('L')
-
-        # Step 2: Upscale small images (OCR works better on larger text)
-        min_dim = min(image.size)
-        if min_dim < 1000:
-            scale = max(2, 1500 // min_dim)
-            image = image.resize(
-                (image.size[0] * scale, image.size[1] * scale),
-                Image.Resampling.LANCZOS,
-            )
-
-        # Step 3: Contrast enhancement
-        from PIL import ImageEnhance, ImageFilter
-        enhancer = ImageEnhance.Contrast(image)
-        image = enhancer.enhance(1.8)
-
-        # Sharpen
-        enhancer = ImageEnhance.Sharpness(image)
-        image = enhancer.enhance(2.0)
-
-        # Step 4: Adaptive thresholding
-        try:
-            import cv2
-            import numpy as np
-            img_array = np.array(image)
-            # Gaussian adaptive threshold — excellent for uneven lighting
-            binary = cv2.adaptiveThreshold(
-                img_array, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
-                cv2.THRESH_BINARY, 31, 10,
-            )
-            # Morphological noise removal (removes small dots/specks)
-            kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (2, 2))
-            binary = cv2.morphologyEx(binary, cv2.MORPH_CLOSE, kernel)
-            image = Image.fromarray(binary)
-        except ImportError:
-            # Fallback: simple Otsu-style threshold with Pillow
-            histogram = image.histogram()
-            total = sum(histogram)
-            current = 0
-            threshold = 128
-            for i in range(256):
-                current += histogram[i]
-                if current >= total * 0.5:
-                    threshold = i
-                    break
-            image = image.point(lambda p: 255 if p > threshold else 0, '1')
-
-        # Step 5: Light denoise
-        try:
-            image = image.filter(ImageFilter.MedianFilter(size=1))
-        except Exception:
-            pass
-
+        """Deprecated: LLM Vision API handles preprocessing natively."""
         return image
 
     def _render_pdf_page(self, pdf_data: bytes, page_index: int) -> Optional[bytes]:
@@ -262,17 +193,20 @@ class DocumentParser:
             return None
 
     def _parse_image(self, file_data: bytes, filename: str) -> ParsedDocument:
-        """Parse an image file using OCR."""
+        """Parse an image file using LLM Vision API."""
         try:
             image = Image.open(io.BytesIO(file_data))
 
-            # Preprocess
-            processed = self._preprocess_for_ocr(image.copy())
+            # Deduce mimetype
+            fmt = image.format.lower() if image.format else "png"
+            mime_type = f"image/{fmt}"
+            if fmt == "jpg":
+                mime_type = "image/jpeg"
 
-            # OCR
-            text = pytesseract.image_to_string(processed, lang='eng').strip()
+            # Use LLM Vision API for OCR
+            text = llm_provider.extract_text_from_image(file_data, mime_type=mime_type)
 
-            # Use original image as page image
+            # Use original image as page image (converted to PNG for consistency in UI)
             img_buffer = io.BytesIO()
             image.save(img_buffer, format="PNG")
             image_bytes = img_buffer.getvalue()

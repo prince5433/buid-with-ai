@@ -52,8 +52,7 @@ DocIntel AI is a full-stack web application that:
 
 ### 1. Document Parser
 - **PDF (digital)**: Text + table extraction via pdfplumber, metadata via PyMuPDF
-- **PDF (scanned)**: OCR via pytesseract with image preprocessing (grayscale, binarization)
-- **Images**: Direct OCR with preprocessing pipeline
+- **PDF (scanned) & Images**: Direct OCR via **LLM Vision API** (GPT-4o-mini / Gemini Flash) natively handling poor lighting, handwriting, and complex layouts without requiring external OS binaries like Tesseract.
 - **Text files**: Chunked into pages with rendered page images
 - **Tables**: Extracted as structured markdown, preserving row/column layout
 
@@ -120,11 +119,8 @@ Security was treated as a primary constraint, not an afterthought. The system im
 
 - **Python 3.10+**
 - **Node.js 18+**
-- **Tesseract OCR** — [Install guide](https://github.com/tesseract-ocr/tesseract#installing-tesseract)
-  - Windows: Download from [UB Mannheim](https://github.com/UB-Mannheim/tesseract/wiki)
-  - macOS: `brew install tesseract`
-  - Linux: `sudo apt install tesseract-ocr`
-- **Poppler** (for pdf2image) — Optional, PyMuPDF used as fallback
+- **OpenAI or Gemini API Key** (for classification, RAG, and Vision OCR)
+- **Poppler** (Optional for PyMuPDF fallback rendering)
   - Windows: Download from [poppler releases](https://github.com/oschwartz10612/poppler-windows/releases)
   - macOS: `brew install poppler`
   - Linux: `sudo apt install poppler-utils`

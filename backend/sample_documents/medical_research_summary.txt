@@ -1,0 +1,163 @@
+MEDICAL RESEARCH SUMMARY
+Clinical Trial Results: Phase III Study of NeuraClear (NX-4821)
+Treatment of Moderate-to-Severe Alzheimer's Disease
+
+Protocol Number: NX-4821-CLARITY-III
+ClinicalTrials.gov Identifier: NCT05847291
+Sponsor: NovaNeuroscience Pharmaceuticals, Inc.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STUDY OVERVIEW
+
+NeuraClear (NX-4821) is a monoclonal antibody targeting amyloid-beta oligomers for the treatment of moderate-to-severe Alzheimer's disease. This Phase III, randomized, double-blind, placebo-controlled trial (CLARITY-III) evaluated the efficacy and safety of NX-4821 in patients aged 55-85 years with confirmed Alzheimer's pathology.
+
+Study Duration: 76 weeks (18-month treatment period + 4-week follow-up)
+Enrollment Period: March 2023 — September 2024
+Study Sites: 187 centers across 14 countries
+Total Patients Enrolled: 2,847
+Randomization: 1:1:1 (Low dose : High dose : Placebo)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PATIENT DEMOGRAPHICS
+
+| Characteristic          | Low Dose (n=949) | High Dose (n=951) | Placebo (n=947) |
+|-------------------------|------------------|-------------------|-----------------|
+| Age, mean (SD)          | 71.4 (7.2)       | 71.8 (6.9)        | 71.1 (7.5)      |
+| Female, n (%)           | 541 (57.0%)      | 537 (56.5%)       | 548 (57.9%)     |
+| MMSE score, mean (SD)   | 14.2 (3.8)       | 14.5 (3.6)        | 14.1 (3.9)      |
+| CDR-SB score, mean (SD) | 8.4 (2.1)        | 8.2 (2.3)         | 8.5 (2.0)       |
+| ApoE4 carrier, n (%)   | 612 (64.5%)      | 621 (65.3%)       | 608 (64.2%)     |
+| Amyloid PET positive, % | 100%             | 100%              | 100%            |
+| Prior cholinesterase use | 734 (77.3%)      | 741 (77.9%)       | 728 (76.9%)     |
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PRIMARY EFFICACY RESULTS
+
+Primary Endpoint: Change from baseline in ADAS-Cog14 score at Week 76
+
+| Treatment Group | Baseline Mean | Week 76 Change | Difference vs Placebo | p-value    |
+|----------------|---------------|----------------|----------------------|------------|
+| Placebo         | 38.4          | +8.72          | —                    | —          |
+| Low Dose (5mg)  | 38.1          | +5.84          | -2.88                | p < 0.001  |
+| High Dose (10mg)| 38.6          | +4.21          | -4.51                | p < 0.0001 |
+
+The high-dose group demonstrated a 51.7% reduction in cognitive decline compared to placebo, meeting the primary endpoint with high statistical significance.
+
+Secondary Endpoints:
+
+| Endpoint                      | High Dose vs Placebo | p-value    |
+|-------------------------------|---------------------|------------|
+| CDR-SB change at Week 76      | -1.87 points        | p < 0.0001 |
+| ADCS-ADL change at Week 76    | +4.23 points        | p < 0.001  |
+| Amyloid PET reduction (SUVR)  | -0.42 centiloids    | p < 0.0001 |
+| Brain volume loss (MRI)       | No significant diff  | p = 0.234  |
+| Caregiver burden (ZBI)        | -3.14 points        | p = 0.008  |
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SAFETY RESULTS
+
+Adverse Events Summary:
+
+| Event Category                  | Low Dose    | High Dose   | Placebo     |
+|---------------------------------|-------------|-------------|-------------|
+| Any adverse event, n (%)        | 812 (85.6%) | 834 (87.7%) | 784 (82.8%) |
+| Serious adverse events          | 142 (15.0%) | 168 (17.7%) | 131 (13.8%) |
+| Discontinuation due to AE       | 87 (9.2%)   | 112 (11.8%) | 64 (6.8%)   |
+| Deaths                          | 18 (1.9%)   | 21 (2.2%)   | 16 (1.7%)   |
+| ARIA-E (edema)                  | 198 (20.9%) | 284 (29.9%) | 32 (3.4%)   |
+| ARIA-H (microhemorrhages)       | 112 (11.8%) | 167 (17.6%) | 48 (5.1%)   |
+| Infusion-related reactions      | 78 (8.2%)   | 94 (9.9%)   | 12 (1.3%)   |
+| Headache                        | 187 (19.7%) | 213 (22.4%) | 142 (15.0%) |
+
+ARIA (Amyloid-Related Imaging Abnormalities):
+- Most ARIA events were mild-to-moderate and asymptomatic
+- ARIA-E was detected primarily in the first 12 weeks of treatment
+- 87% of ARIA-E cases resolved within 12 weeks
+- 3 ARIA-E cases required hospitalization (all in high-dose group)
+- ApoE4 homozygotes had higher ARIA-E rates (41.2% vs 24.8% in heterozygotes)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SUBGROUP ANALYSES
+
+Efficacy by ApoE4 Status (High Dose, ADAS-Cog14 change):
+
+| ApoE4 Status        | n    | Treatment Effect | 95% CI          |
+|----------------------|------|-----------------|-----------------|
+| Non-carrier          | 330  | -5.12           | (-6.84, -3.40)  |
+| Heterozygote (1 copy)| 412  | -4.73           | (-6.21, -3.25)  |
+| Homozygote (2 copies)| 209  | -3.24           | (-5.18, -1.30)  |
+
+Efficacy by Disease Severity:
+
+| Baseline MMSE  | n    | Treatment Effect | Clinical Significance |
+|----------------|------|------------------|-----------------------|
+| 10-14 (moderate)| 528 | -5.87            | Large                 |
+| 15-19 (mild-mod)| 423 | -3.42            | Moderate              |
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+BIOMARKER RESULTS
+
+Cerebrospinal Fluid (CSF) Biomarkers at Week 76:
+
+| Biomarker              | High Dose Change | Placebo Change | p-value   |
+|------------------------|-----------------|----------------|-----------|
+| Aβ42                   | +42.3%          | -2.1%          | p < 0.0001|
+| p-tau181               | -38.7%          | +4.2%          | p < 0.0001|
+| t-tau                  | -28.4%          | +3.8%          | p < 0.0001|
+| NfL (neurofilament)    | -15.2%          | +8.7%          | p < 0.001 |
+| GFAP                   | -22.1%          | +5.4%          | p < 0.001 |
+
+These biomarker changes suggest that NX-4821 engages the amyloid pathway and may have downstream effects on tau pathology and neuroinflammation.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CONCLUSIONS
+
+1. NeuraClear (NX-4821) at the 10mg dose demonstrated statistically significant and clinically meaningful slowing of cognitive and functional decline in patients with moderate-to-severe Alzheimer's disease.
+
+2. The treatment effect of 51.7% reduction in cognitive decline represents a meaningful advance over currently available treatments.
+
+3. Safety profile is consistent with the anti-amyloid antibody class, with ARIA being the most notable adverse effect. Enhanced MRI monitoring is recommended, particularly for ApoE4 carriers.
+
+4. Biomarker data support the mechanism of action and suggest potential disease-modifying effects.
+
+5. NovaNeuroscience plans to submit a Biologics License Application (BLA) to the FDA in Q2 2026 and a Marketing Authorization Application (MAA) to the EMA simultaneously.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+REGULATORY STATUS
+
+- FDA: Pre-BLA meeting scheduled February 2026
+- EMA: Scientific advice received October 2025
+- PMDA (Japan): Regulatory consultation ongoing
+- Health Canada: Pre-submission meeting completed
+
+Estimated Timeline:
+- BLA/MAA submission: Q2 2026
+- FDA review completion: Q4 2026 (Priority Review anticipated)
+- Potential approval: Q1 2027
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DISCLOSURE
+
+This document contains CONFIDENTIAL and RESTRICTED information belonging to NovaNeuroscience Pharmaceuticals, Inc. Distribution is limited to authorized personnel, regulatory authorities, and institutional review boards as required.
+
+Study Principal Investigator:
+Dr. Richard Blackwell, MD, PhD
+Director, Alzheimer's Disease Research Center
+Massachusetts General Hospital
+Boston, MA 02114
+
+Medical Monitor:
+Dr. Sarah Yamamoto, MD
+VP Clinical Development, NovaNeuroscience Pharmaceuticals
+Email: clinical@novaneuro.com
+
+Document Classification: RESTRICTED — Contains unpublished clinical data

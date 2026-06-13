@@ -1,0 +1,265 @@
+EMPLOYEE HANDBOOK
+TechNova Solutions Inc.
+Human Resources Policy Manual
+Version 3.2 — Effective January 1, 2026
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TABLE OF CONTENTS
+
+1. Company Overview & Mission
+2. Employment Policies
+3. Compensation & Benefits
+4. Time Off & Leave Policies
+5. Code of Conduct
+6. Information Security
+7. Health & Safety
+8. Grievance Procedures
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. COMPANY OVERVIEW & MISSION
+
+TechNova Solutions Inc. was founded in 2018 with a mission to democratize artificial intelligence for small and medium-sized businesses. Headquartered in Boston, Massachusetts, with offices in Austin (TX), London (UK), and Bangalore (India), we serve over 12,000 customers across 45 countries.
+
+Our Core Values:
+- Innovation First: We push boundaries and embrace creative solutions
+- Customer Obsession: Every decision starts with the customer
+- Radical Transparency: Open communication at every level
+- Inclusive Excellence: Diverse teams build better products
+- Sustainable Growth: Long-term value over short-term gains
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+2. EMPLOYMENT POLICIES
+
+2.1 Equal Employment Opportunity
+
+TechNova Solutions is an equal opportunity employer. We do not discriminate on the basis of race, color, religion, sex, national origin, age, disability, genetic information, veteran status, sexual orientation, gender identity, or any other protected characteristic under applicable law.
+
+2.2 Employment Classifications
+
+| Classification    | Description                           | Benefits Eligible |
+|-------------------|---------------------------------------|-------------------|
+| Full-Time         | 40+ hours/week, indefinite term       | Yes (Full)        |
+| Part-Time         | 20-39 hours/week                      | Yes (Prorated)    |
+| Contract          | Fixed-term engagement                 | Limited           |
+| Intern            | Temporary, educational purpose        | Limited           |
+| Consultant        | Independent contractor (1099)         | None              |
+
+2.3 Probationary Period
+
+All new full-time and part-time employees are subject to a 90-day probationary period. During this period:
+- Performance reviews conducted at 30, 60, and 90 days
+- Employment may be terminated with 1 week notice
+- Full benefits begin on day 1 (medical/dental/vision)
+- 401(k) enrollment available after 60 days
+
+2.4 Remote Work Policy
+
+TechNova operates a hybrid-first model:
+- All employees may work remotely up to 3 days per week
+- Core collaboration hours: 10:00 AM - 3:00 PM (local time zone)
+- Full-time remote arrangements require VP approval
+- Home office stipend: $1,500 one-time setup + $75/month ongoing
+- Required equipment: Company-provided laptop, external monitor, headset
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+3. COMPENSATION & BENEFITS
+
+3.1 Salary Structure
+
+Compensation is reviewed annually and benchmarked against industry standards using Radford and Mercer data. Our target is the 65th percentile of market rates.
+
+| Level | Title                    | Salary Range         |
+|-------|--------------------------|----------------------|
+| L1    | Associate/Junior         | $65,000 - $90,000    |
+| L2    | Mid-Level                | $90,000 - $130,000   |
+| L3    | Senior                   | $130,000 - $175,000  |
+| L4    | Staff/Lead               | $175,000 - $220,000  |
+| L5    | Principal/Director       | $220,000 - $300,000  |
+| L6    | VP/Senior Director       | $300,000 - $400,000  |
+| L7    | C-Suite                  | Individually negotiated|
+
+3.2 Benefits Package
+
+Health & Wellness:
+- Medical insurance (3 plan options: PPO, HMO, HDHP) — Company pays 85% of premium
+- Dental insurance — Company pays 100%
+- Vision insurance — Company pays 100%
+- Mental health benefit: $3,000/year for therapy/counseling
+- Gym membership reimbursement: up to $100/month
+- Annual wellness stipend: $500
+
+Financial Benefits:
+- 401(k) with 4% company match (vested immediately)
+- Employee Stock Purchase Plan (ESPP): 15% discount
+- Life insurance: 2x annual salary (company-paid)
+- Short-term disability: 70% of salary for up to 12 weeks
+- Long-term disability: 60% of salary
+- FSA and HSA options available
+
+Professional Development:
+- Annual learning budget: $5,000 per employee
+- Conference attendance: up to 2 conferences per year
+- Internal mentorship program
+- Tuition reimbursement: up to $10,000/year for approved programs
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+4. TIME OFF & LEAVE POLICIES
+
+4.1 Paid Time Off (PTO)
+
+| Tenure           | Annual PTO Days | Sick Days | Personal Days |
+|------------------|-----------------|-----------|---------------|
+| 0-2 years        | 20 days         | 10 days   | 3 days        |
+| 3-5 years        | 25 days         | 10 days   | 4 days        |
+| 6-10 years       | 28 days         | 12 days   | 5 days        |
+| 10+ years        | 30 days         | 15 days   | 5 days        |
+
+PTO may be carried over up to 5 days into the next calendar year. Unused PTO beyond the carryover limit will be forfeited.
+
+4.2 Company Holidays (2026)
+
+The company observes 11 paid holidays:
+1. New Year's Day — January 1
+2. Martin Luther King Jr. Day — January 19
+3. Presidents' Day — February 16
+4. Memorial Day — May 25
+5. Independence Day — July 4 (observed July 3)
+6. Labor Day — September 7
+7. Indigenous Peoples' Day — October 12
+8. Veterans Day — November 11
+9. Thanksgiving — November 26-27 (2 days)
+10. Christmas Day — December 25
+
+Additionally, the office closes from December 26-31 ("Winter Break") — no PTO required.
+
+4.3 Parental Leave
+
+- Birth parents: 16 weeks fully paid + 4 weeks at 60% pay
+- Non-birth parents/adoptive parents: 12 weeks fully paid
+- Gradual return option: 4 weeks of part-time (50%) schedule at full pay
+- Available to all employees regardless of gender or family structure
+
+4.4 Other Leave Types
+
+- Bereavement: 5 days (immediate family), 3 days (extended family)
+- Jury duty: Full pay for duration of service
+- Voting: 4 hours paid time for local/state/federal elections
+- Volunteer days: 2 days per year for approved charitable activities
+- Sabbatical: 4 weeks paid after 7 years of continuous employment
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+5. CODE OF CONDUCT
+
+5.1 Professional Standards
+
+All employees are expected to:
+- Act with integrity and honesty in all business dealings
+- Treat colleagues, customers, and partners with respect
+- Protect company confidential information
+- Avoid conflicts of interest
+- Comply with all applicable laws and regulations
+
+5.2 Anti-Harassment Policy
+
+TechNova maintains a zero-tolerance policy for harassment of any kind, including but not limited to:
+- Sexual harassment (verbal, physical, or visual)
+- Bullying or intimidation
+- Discriminatory comments or behavior
+- Retaliation against those who report concerns
+
+Reporting: Incidents should be reported to HR, your manager, or through the anonymous ethics hotline: 1-800-555-ETHX or ethics@technova.com.
+
+5.3 Intellectual Property
+
+All work product created during employment, including inventions, code, designs, and documentation, is the property of TechNova Solutions Inc. Employees must:
+- Sign an Invention Assignment Agreement upon hire
+- Disclose any prior inventions that may overlap
+- Not use company resources for personal projects without written approval
+- Return all company materials upon termination
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+6. INFORMATION SECURITY
+
+6.1 Data Classification
+
+All company data must be classified according to the following levels:
+
+| Level         | Description                           | Handling Requirements              |
+|---------------|---------------------------------------|------------------------------------|
+| Public        | Marketing materials, press releases   | No restrictions                    |
+| Internal      | Internal memos, project docs          | Company network only               |
+| Confidential  | Customer data, financial records      | Encrypted, access-controlled       |
+| Restricted    | Trade secrets, M&A documents          | Need-to-know, multi-factor auth    |
+
+6.2 Acceptable Use Policy
+
+- Company devices must use full-disk encryption
+- Multi-factor authentication required for all accounts
+- Password requirements: 12+ characters, changed every 90 days
+- No personal software installation without IT approval
+- VPN required for all remote access
+- Reporting security incidents: security@technova.com (within 1 hour)
+
+6.3 Data Breach Response
+
+In the event of a suspected data breach:
+1. Immediately notify the Security team (security@technova.com)
+2. Do not attempt to investigate independently
+3. Preserve all relevant evidence
+4. Security team will activate the Incident Response Plan
+5. Affected parties will be notified within 72 hours per GDPR/CCPA requirements
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+7. HEALTH & SAFETY
+
+7.1 Workplace Safety
+
+TechNova is committed to providing a safe work environment. All employees must:
+- Complete annual safety training
+- Report hazards or unsafe conditions immediately
+- Follow ergonomic guidelines for workstation setup
+- Participate in quarterly fire drills and emergency preparedness exercises
+
+7.2 Emergency Procedures
+
+- Fire: Evacuate via nearest exit, assemble at designated meeting point
+- Medical emergency: Call 911, then notify front desk (ext. 100)
+- Active threat: Run, Hide, Fight protocol (see training materials)
+- Natural disaster: Follow building-specific procedures posted in break rooms
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+8. GRIEVANCE PROCEDURES
+
+Step 1: Informal Resolution — Discuss the issue directly with your manager or the other party involved.
+
+Step 2: HR Mediation — If informal resolution fails, submit a written complaint to HR. HR will investigate within 10 business days and schedule mediation if appropriate.
+
+Step 3: Formal Investigation — For serious matters (harassment, discrimination, safety violations), HR will conduct a formal investigation with interviews and documentation.
+
+Step 4: Appeal — If dissatisfied with the outcome, employees may appeal to the VP of Human Resources within 5 business days.
+
+Step 5: External Resolution — Employees retain the right to file complaints with the EEOC, state labor board, or seek legal counsel at any time.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ACKNOWLEDGMENT
+
+By continuing employment at TechNova Solutions Inc., you acknowledge that you have received, read, and understood this Employee Handbook. This handbook is not a contract of employment and does not guarantee employment for any specific duration.
+
+TechNova Solutions reserves the right to modify policies at any time with reasonable notice.
+
+Last Updated: November 15, 2025
+Next Scheduled Review: November 2026
+
+For questions about this handbook, contact:
+Human Resources Department
+hr@technova.com | +1 (617) 555-0142

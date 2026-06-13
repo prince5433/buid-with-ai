@@ -1,0 +1,259 @@
+ENVIRONMENTAL IMPACT ASSESSMENT REPORT
+Project: Riverside Commerce Park Development
+Report ID: EIA-2025-RC-0847
+
+Prepared For: Riverside Municipal Planning Commission
+Prepared By: EcoAssess Environmental Consulting Group
+Lead Assessor: Dr. Margaret Chen, PhD, AICP
+Date: November 30, 2025
+Status: FINAL
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. EXECUTIVE SUMMARY
+
+This Environmental Impact Assessment (EIA) evaluates the proposed Riverside Commerce Park Development, a 45-acre mixed-use commercial project located at the intersection of River Road and Oak Street in Riverside, California. The project proposes the construction of 6 commercial buildings totaling 425,000 square feet of office and retail space, a 1,200-space parking structure, and 3.5 acres of public green space.
+
+Key Findings:
+
+| Impact Category        | Significance Level | Mitigation Required |
+|------------------------|-------------------|---------------------|
+| Air Quality            | Moderate          | Yes                 |
+| Water Resources        | Significant       | Yes (Critical)      |
+| Noise                  | Low-Moderate      | Yes                 |
+| Traffic                | Significant       | Yes (Critical)      |
+| Biodiversity           | Moderate          | Yes                 |
+| Soil & Geology         | Low               | Standard measures   |
+| Visual/Landscape       | Low               | Recommended         |
+| Cultural Heritage      | No Impact         | None                |
+| Socioeconomic          | Positive          | N/A                 |
+
+Recommendation: The project MAY PROCEED with conditions, subject to implementation of all mandatory mitigation measures outlined in Section 7 of this report.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+2. PROJECT DESCRIPTION
+
+2.1 Location & Context
+
+The project site is located at 34.0195°N, 117.3755°W, approximately 2.3 miles east of downtown Riverside. The site is currently occupied by a decommissioned industrial facility (former Riverside Paper Mill, closed 2019) and undeveloped grassland.
+
+Adjacent Land Uses:
+- North: Residential neighborhood (River Oaks subdivision)
+- South: Santa Ana River and riparian corridor
+- East: Agricultural land (citrus orchards)
+- West: Existing commercial strip (River Road Shopping Center)
+
+2.2 Proposed Development
+
+| Component              | Details                          | Area (sq ft)   |
+|------------------------|----------------------------------|----------------|
+| Office Building A      | 8 stories, Class A office        | 120,000        |
+| Office Building B      | 6 stories, Class A office        | 85,000         |
+| Office Building C      | 4 stories, flexible office       | 60,000         |
+| Retail Center          | 2 stories, shops & restaurants   | 80,000         |
+| Innovation Hub         | 3 stories, coworking & labs      | 45,000         |
+| Community Center       | 2 stories, public amenities      | 35,000         |
+| Parking Structure      | 4 levels, 1,200 spaces           | 480,000        |
+| Public Green Space     | Parks, trails, water features    | 152,460 (3.5ac)|
+
+Total Project Investment: $287 million
+Construction Timeline: 36 months (Q2 2026 — Q2 2029)
+Estimated Jobs Created: 3,200 permanent + 1,500 construction
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+3. ENVIRONMENTAL BASELINE
+
+3.1 Air Quality
+
+Current air quality in the project area is classified as "Moderate" by the South Coast Air Quality Management District (SCAQMD). The area is designated non-attainment for PM2.5 and ozone under federal NAAQS standards.
+
+Monitoring Data (2024-2025 Average):
+
+| Pollutant | Measured Value | Standard | Status           |
+|-----------|---------------|----------|------------------|
+| PM2.5     | 14.2 µg/m³    | 12 µg/m³ | Non-attainment   |
+| PM10      | 38.7 µg/m³    | 50 µg/m³ | Attainment       |
+| O3 (8-hr) | 0.078 ppm     | 0.070 ppm| Non-attainment   |
+| NO2       | 0.032 ppm     | 0.053 ppm| Attainment       |
+| CO        | 2.1 ppm       | 9 ppm    | Attainment       |
+| SO2       | 0.004 ppm     | 0.075 ppm| Attainment       |
+
+3.2 Water Resources
+
+The project site is located within the Santa Ana River watershed. The nearest water body is the Santa Ana River, approximately 0.3 miles south of the project boundary. Key water resource characteristics:
+
+- Groundwater depth: 45-60 feet below grade
+- Soil permeability: Moderate (sandy loam, infiltration rate 1.2-2.8 in/hr)
+- Flood zone: Majority of site in Zone X (minimal flood hazard); southern 4 acres in Zone AE (100-year flood plain)
+- Existing contamination: Phase II ESA identified petroleum hydrocarbons in soil at former mill site (remediation in progress under DTSC oversight)
+
+3.3 Biological Resources
+
+Field surveys conducted between March and September 2025 identified the following species of concern:
+
+| Species                    | Status              | Location on Site        |
+|---------------------------|---------------------|------------------------|
+| Least Bell's Vireo         | Federal Endangered   | Riparian corridor (S)   |
+| Santa Ana Sucker (fish)    | Federal Threatened   | Santa Ana River         |
+| Coastal California Gnatcatcher | Federal Threatened | Sage scrub (SE corner) |
+| California Black Walnut    | State Rare Plant     | 3 specimens (central)  |
+| Burrowing Owl              | State Species of Concern | Grassland (E portion) |
+
+A total of 127 plant species and 68 vertebrate species were documented during the biological survey period.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+4. IMPACT ANALYSIS
+
+4.1 Air Quality Impacts
+
+Construction Phase:
+- Dust generation from grading and excavation: Up to 85 lbs/day PM10
+- Construction vehicle emissions: 124 lbs/day NOx
+- Duration: 36 months
+
+Operational Phase:
+- Vehicle trips generated: 8,450 average daily trips (ADT)
+- Estimated emissions: 42 lbs/day NOx, 18 lbs/day PM2.5
+- Building energy emissions: Minimal (all-electric design with on-site solar)
+
+4.2 Traffic Impacts
+
+The traffic impact study (conducted by TransPlan Associates, August 2025) analyzed 14 intersections within the project study area.
+
+Intersection Level of Service Analysis:
+
+| Intersection              | Current LOS | With Project LOS | Significant? |
+|---------------------------|-------------|-------------------|-------------|
+| River Rd / Oak St         | C           | E                 | Yes         |
+| River Rd / I-215 SB Ramp  | D           | F                 | Yes         |
+| River Rd / I-215 NB Ramp  | C           | E                 | Yes         |
+| Oak St / Mission Blvd     | B           | C                 | No          |
+| River Rd / Market St      | C           | D                 | No          |
+
+4.3 Noise Impacts
+
+Ambient noise measurements conducted at 8 monitoring locations over a 72-hour period:
+
+| Location          | Daytime dBA (Leq) | Nighttime dBA (Leq) | Construction Impact |
+|-------------------|-------------------|---------------------|---------------------|
+| North (residential)| 58                | 42                  | +12 dBA (temporary) |
+| South (river)     | 52                | 38                  | +8 dBA (temporary)  |
+| East (agricultural)| 48                | 35                  | +15 dBA (temporary) |
+| West (commercial) | 62                | 48                  | +6 dBA (temporary)  |
+
+Construction noise impacts will be temporary (36 months) and will be mitigated through restricted work hours and equipment noise controls.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+5. CUMULATIVE IMPACTS
+
+Five other development projects within a 3-mile radius were considered for cumulative impact analysis:
+
+1. Riverside Gateway Apartments (320 units, approved 2024)
+2. University Avenue Corridor Improvement (road widening, under construction)
+3. Sycamore Canyon Business Park Phase 2 (180,000 sq ft, approved 2025)
+4. Arlington Heights Mixed-Use (450 units + 50,000 sq ft retail, proposed)
+5. March Air Reserve Base expansion (military, approved 2023)
+
+Cumulative traffic impacts are projected to degrade 3 additional intersections to LOS E or F by 2030. Regional air quality impacts will require coordination with SCAQMD on emission offset requirements.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+6. ALTERNATIVES ANALYSIS
+
+Three alternatives were evaluated:
+
+Alternative A: No Project — The site remains in its current state. No environmental impacts, but no economic benefits realized. Does not meet project objectives.
+
+Alternative B: Reduced Scale — 60% of proposed development (255,000 sq ft). Reduces traffic impacts to less-than-significant levels but reduces economic benefits by $110M and 1,280 permanent jobs.
+
+Alternative C: Alternative Site — Development at the vacant Sunnymead Industrial Park (15 miles east). Avoids riparian corridor impacts but increases commute distances, has poorer transit access, and would require new utility infrastructure ($18M additional cost).
+
+Recommendation: The proposed project (with mitigation) is the environmentally superior alternative when balancing environmental protection with socioeconomic benefits.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+7. MITIGATION MEASURES
+
+7.1 Critical Mitigation (Mandatory)
+
+MM-WR-1: Stormwater Management Plan — Install bioswale treatment systems, permeable pavement in parking areas, and a 2-acre constructed wetland for stormwater filtration. All runoff must be treated before leaving the site.
+
+MM-WR-2: Riparian Buffer — Maintain a minimum 200-foot development setback from the Santa Ana River. Restore 5 acres of native riparian habitat within the buffer zone.
+
+MM-TR-1: Road Improvements — Fund the following improvements (estimated cost: $24.5M):
+- Widen River Road to 6 lanes between Oak Street and I-215
+- Install traffic signals at 3 intersections
+- Construct dedicated right-turn lanes at River Rd / I-215 ramps
+
+MM-TR-2: Transit Enhancement — Fund a new Riverside Transit Agency bus route serving the project site (5-year operating subsidy: $3.2M). Provide transit passes to all employees for the first 3 years.
+
+MM-BIO-1: Habitat Compensation — Acquire and permanently protect 15 acres of coastal sage scrub habitat offsite (at a 3:1 mitigation ratio) for impacts to potential gnatcatcher habitat.
+
+MM-BIO-2: Construction Timing — No grading or clearing within 500 feet of the riparian corridor between March 15 and August 31 (bird nesting season).
+
+7.2 Recommended Mitigation
+
+MM-AQ-1: Construction dust control — Water exposed surfaces 3x daily, use soil stabilizers, limit vehicle speeds to 15 mph on unpaved roads.
+
+MM-NS-1: Construction hours limited to 7:00 AM - 6:00 PM weekdays, 8:00 AM - 5:00 PM Saturdays, no work on Sundays or holidays.
+
+MM-VIS-1: Landscape screening — Plant native trees (minimum 36-inch box) along the northern project boundary to screen views from residential neighborhood.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+8. MONITORING & REPORTING
+
+A Mitigation Monitoring and Reporting Program (MMRP) will be implemented throughout the construction and operational phases:
+
+| Phase         | Monitoring Activity               | Frequency    | Responsible Party |
+|---------------|-----------------------------------|--------------|-------------------|
+| Pre-Const.    | Biological surveys                | Once         | Qualified biologist|
+| Construction  | Dust monitoring                   | Daily        | Contractor         |
+| Construction  | Noise monitoring                  | Weekly       | EcoAssess          |
+| Construction  | Stormwater sampling               | Monthly      | Environmental eng. |
+| Construction  | Nesting bird surveys              | Weekly (Mar-Aug) | Qualified biologist |
+| Operational   | Traffic counts                    | Quarterly (Yr 1-3) | TransPlan    |
+| Operational   | Water quality monitoring          | Quarterly    | Environmental eng. |
+| Operational   | Habitat restoration assessment    | Annually     | EcoAssess          |
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+9. CONCLUSION
+
+Based on this assessment, the proposed Riverside Commerce Park Development will result in significant but mitigable environmental impacts, primarily related to water resources and traffic. With full implementation of the mandatory mitigation measures outlined in Section 7, all significant impacts can be reduced to less-than-significant levels.
+
+The project offers substantial socioeconomic benefits, including 3,200 permanent jobs, $287 million in investment, and $8.4 million in annual tax revenue. The all-electric building design and on-site solar generation demonstrate the developer's commitment to sustainable construction practices.
+
+This report has been prepared in accordance with the California Environmental Quality Act (CEQA), CEQA Guidelines, and Riverside Municipal Code Chapter 19.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CERTIFICATION
+
+I hereby certify that this Environmental Impact Assessment has been prepared under my direction and supervision, and that the information contained herein is accurate and complete to the best of my knowledge.
+
+Dr. Margaret Chen, PhD, AICP
+Principal Environmental Scientist
+EcoAssess Environmental Consulting Group
+California Registered Environmental Assessor No. 12847
+
+Date: November 30, 2025
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+APPENDICES (available separately)
+
+Appendix A: Biological Survey Reports
+Appendix B: Traffic Impact Study (TransPlan Associates)
+Appendix C: Phase II Environmental Site Assessment
+Appendix D: Air Quality Modeling Results
+Appendix E: Noise Monitoring Data
+Appendix F: Geotechnical Investigation Report
+Appendix G: Public Comments and Responses
+
+Document Classification: PUBLIC RECORD
+Distribution: Unrestricted (available at City Hall and online portal)

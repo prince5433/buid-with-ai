@@ -1,0 +1,239 @@
+MEETING MINUTES
+Board of Directors Quarterly Meeting
+GreenFuture Energy Corporation
+
+Date: December 15, 2025
+Time: 10:00 AM - 2:30 PM EST
+Location: Conference Room A, Corporate Headquarters, Austin, TX
+Mode: Hybrid (In-person + Video Conference)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ATTENDEES
+
+Present (In-Person):
+- Robert Harrison, Chairman & CEO
+- Dr. Lisa Nguyen, Chief Technology Officer
+- Michael Torres, Chief Financial Officer
+- Samantha Wright, VP Operations
+- David Kim, VP Business Development
+
+Present (Remote):
+- Jennifer Adams, Independent Board Director
+- Dr. Ahmed Hassan, Board Director
+- Patricia Lawson, General Counsel
+
+Absent:
+- Thomas Chen, Board Director (excused — medical leave)
+
+Minutes Recorded By: Emma Richardson, Executive Assistant
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+AGENDA
+
+1. Call to Order & Approval of Previous Minutes
+2. CEO Report — Q4 Performance & Strategic Update
+3. CFO Report — Financial Review
+4. CTO Report — Technology & R&D Pipeline
+5. Operational Update — Project Status
+6. New Business — 2026 Strategic Plan
+7. Executive Session
+8. Adjournment
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. CALL TO ORDER & APPROVAL OF PREVIOUS MINUTES
+
+Chairman Harrison called the meeting to order at 10:03 AM. A quorum was confirmed with 8 of 9 board members present.
+
+MOTION: Samantha Wright moved to approve the minutes from the September 2025 quarterly meeting. Seconded by Jennifer Adams.
+VOTE: Unanimously approved (8-0).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+2. CEO REPORT — Q4 PERFORMANCE & STRATEGIC UPDATE
+
+Robert Harrison presented the Q4 2025 performance summary:
+
+Key Highlights:
+- Total revenue: $234.7M (exceeding guidance of $210-225M)
+- Three new solar farm projects commenced in Texas, Nevada, and Arizona
+- Partnership agreement signed with Pacific Gas & Electric (PG&E) for 500MW capacity
+- Employee count reached 2,847 (up 34% YoY)
+- Named to Fortune's "Fastest Growing Energy Companies" list
+
+Strategic Update:
+- The acquisition of WindTech Solutions (announced October 2025) is expected to close by February 2026, pending regulatory approval from the Federal Energy Regulatory Commission (FERC)
+- International expansion plans progressing: European office in Hamburg, Germany scheduled to open Q2 2026
+- New battery storage division launched, with first commercial installation planned for Q1 2026
+
+DISCUSSION: 
+Jennifer Adams raised concerns about the pace of international expansion given current exchange rate volatility. CFO Torres noted that the company has implemented currency hedging strategies covering 80% of projected European expenses through 2026.
+
+Dr. Hassan asked about the competitive landscape in battery storage. CTO Nguyen reported that GreenFuture's proprietary solid-state battery technology provides a 2-3 year competitive advantage based on current patent filings.
+
+ACTION ITEM: Michael Torres to prepare a detailed currency risk analysis for the next board meeting.
+DEADLINE: March 15, 2026
+RESPONSIBLE: Michael Torres, CFO
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+3. CFO REPORT — FINANCIAL REVIEW
+
+Michael Torres presented the financial overview:
+
+Revenue & Profitability:
+
+| Metric                    | Q4 2025   | Q3 2025   | Q4 2024   |
+|---------------------------|-----------|-----------|-----------|
+| Total Revenue             | $234.7M   | $198.3M   | $167.2M   |
+| Cost of Revenue           | $142.1M   | $124.8M   | $108.4M   |
+| Gross Profit              | $92.6M    | $73.5M    | $58.8M    |
+| Gross Margin              | 39.4%     | 37.1%     | 35.2%     |
+| Operating Expenses        | $48.3M    | $42.1M    | $35.7M    |
+| EBITDA                    | $67.2M    | $51.4M    | $38.9M    |
+| Net Income                | $31.4M    | $22.8M    | $15.2M    |
+
+Cash Position:
+- Cash and equivalents: $412.3M
+- Short-term investments: $85.7M
+- Total liquidity: $498.0M
+- Revolving credit facility (undrawn): $200M
+
+Capital Expenditure:
+- Q4 CapEx: $87.4M (primarily solar farm construction)
+- Full Year 2025 CapEx: $312.8M
+- 2026 CapEx Budget (proposed): $425-475M
+
+DISCUSSION:
+Samantha Wright asked about the significant increase in proposed CapEx for 2026. Torres explained that $150M is earmarked for the battery storage division, $180M for new solar installations, and $95-145M for wind farm expansion following the WindTech acquisition.
+
+Patricia Lawson requested confirmation that all project financing arrangements comply with new IRS clean energy tax credit requirements under the Inflation Reduction Act. Torres confirmed compliance and noted that the company expects to realize approximately $45M in tax credits for FY2025.
+
+MOTION: David Kim moved to approve the 2026 CapEx budget range of $425-475M. Seconded by Dr. Hassan.
+VOTE: Approved (7-1, Jennifer Adams abstaining pending currency risk review).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+4. CTO REPORT — TECHNOLOGY & R&D PIPELINE
+
+Dr. Lisa Nguyen presented the technology update:
+
+R&D Expenditure: $28.4M in Q4 (12.1% of revenue)
+
+Key Technology Developments:
+1. Solid-State Battery Breakthrough: Lab prototype achieving 450 Wh/kg energy density (vs. industry standard 250 Wh/kg). Expected timeline to commercial production: 18-24 months.
+
+2. AI-Powered Grid Management: Proprietary GAIA (Grid AI Analytics) platform now managing 3.2 GW of renewable capacity across 47 installations. Reduces curtailment by an estimated 23% and increases energy capture by 8.4%.
+
+3. Next-Gen Solar Panel Design: New perovskite-silicon tandem cell achieving 31.2% efficiency in lab conditions (previous record: 29.8%). Patent filed November 2025.
+
+4. Predictive Maintenance System: ML-based system deployed across all wind turbines, reducing unplanned downtime by 42% and maintenance costs by $12.3M annually.
+
+Patent Portfolio:
+- Total active patents: 187
+- Patents filed in Q4: 12
+- Pending applications: 34
+
+DISCUSSION:
+Dr. Hassan commended the battery technology progress and asked about manufacturing partnerships. Dr. Nguyen indicated preliminary discussions with two major battery manufacturers in South Korea and Japan, with an MOU expected by Q2 2026.
+
+ACTION ITEM: Dr. Nguyen to present a detailed battery commercialization roadmap at the next board meeting.
+DEADLINE: March 2026 Board Meeting
+RESPONSIBLE: Dr. Lisa Nguyen, CTO
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+5. OPERATIONAL UPDATE — PROJECT STATUS
+
+Samantha Wright provided the operational update:
+
+Active Projects:
+
+| Project Name        | Location     | Capacity | Status        | Completion |
+|---------------------|-------------|----------|---------------|------------|
+| Sunfield Alpha      | TX, USA     | 250 MW   | Construction  | Q2 2026    |
+| Desert Vista        | NV, USA     | 180 MW   | Construction  | Q3 2026    |
+| Canyon Ridge Wind   | AZ, USA     | 120 MW   | Planning      | Q4 2026    |
+| Atlantic Breeze     | NC, USA     | 200 MW   | Permitting    | Q1 2027    |
+| Prairie Wind II     | KS, USA     | 300 MW   | Operational   | Completed  |
+| Cascade Solar       | OR, USA     | 150 MW   | Operational   | Completed  |
+
+Safety Record:
+- Zero fatalities in 2025
+- Total Recordable Incident Rate (TRIR): 0.82 (industry average: 1.7)
+- Lost Time Injury Rate: 0.21
+- Safety training hours: 47,200 (across all employees)
+
+Environmental Impact (2025):
+- Total clean energy generated: 4.8 TWh
+- CO2 emissions avoided: 3.4 million metric tons
+- Water saved vs. fossil fuel generation: 2.1 billion gallons
+- Land restoration projects: 450 acres
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+6. NEW BUSINESS — 2026 STRATEGIC PLAN
+
+Robert Harrison presented the proposed 2026 strategic priorities:
+
+Priority 1: Scale Battery Storage Division
+- Target: 500 MWh of installed battery capacity by end of 2026
+- Investment: $150M
+- Revenue target: $50-75M
+
+Priority 2: Complete WindTech Acquisition & Integration
+- Close transaction by Q1 2026
+- Full operational integration by Q3 2026
+- Realize $30M in synergies within 12 months
+
+Priority 3: International Expansion
+- Open European headquarters (Hamburg, Germany)
+- Secure first European project (target: 100+ MW)
+- Establish regulatory and permitting framework in 3 EU countries
+
+Priority 4: Workforce Development
+- Hire 800+ new employees
+- Launch GreenFuture Academy (internal training program)
+- Achieve 40% diversity target in new hires
+
+Priority 5: ESG Leadership
+- Publish first comprehensive ESG report (aligned with TCFD and GRI standards)
+- Achieve carbon-neutral operations (Scope 1 and 2)
+- Establish community benefit agreements for all new projects
+
+MOTION: Dr. Hassan moved to approve the 2026 Strategic Plan as presented. Seconded by David Kim.
+VOTE: Unanimously approved (8-0).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+7. EXECUTIVE SESSION
+
+The board moved into executive session at 2:05 PM to discuss executive compensation and succession planning. No staff present except General Counsel Patricia Lawson.
+
+[Executive session notes recorded separately — classified]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+8. ADJOURNMENT
+
+MOTION: Samantha Wright moved to adjourn. Seconded by Jennifer Adams.
+VOTE: Unanimously approved.
+
+Meeting adjourned at 2:28 PM EST.
+
+Next Quarterly Meeting: March 20, 2026, 10:00 AM EST
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Respectfully submitted,
+Emma Richardson
+Executive Assistant to the CEO
+GreenFuture Energy Corporation
+
+Approved: _________________________ Date: _____________
+         Robert Harrison, Chairman & CEO
+
+CONFIDENTIAL — Board Members Only
+Distribution restricted per corporate governance policy Section 4.2

@@ -1,0 +1,42 @@
+# FastAPI & Server
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+python-multipart==0.0.20
+websockets==14.2
+
+# PDF Parsing
+pdfplumber==0.11.4
+PyMuPDF==1.25.3
+pdf2image==1.17.0
+pytesseract==0.3.13
+
+# Image Processing
+Pillow==11.1.0
+opencv-python-headless==4.10.0.84
+
+# LLM & RAG
+langchain==0.3.14
+langchain-google-genai==2.0.8
+langchain-community==0.3.14
+langchain-chroma==0.2.2
+langgraph==0.2.60
+google-generativeai==0.8.4
+
+# Embeddings & Vector Store
+sentence-transformers==3.3.1
+chromadb==0.6.3
+
+# Database
+sqlalchemy==2.0.36
+aiosqlite==0.20.0
+
+# Security
+cryptography==44.0.0
+python-magic-bin==0.4.14
+
+# Utilities
+python-dotenv==1.0.1
+pydantic==2.10.4
+pydantic-settings==2.7.1
+aiofiles==24.1.0
+httpx==0.28.1

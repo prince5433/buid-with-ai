@@ -10,8 +10,8 @@ load_dotenv()
 class Settings(BaseSettings):
     """Application settings."""
 
-    # API Keys
     gemini_api_key: str = os.getenv("GEMINI_API_KEY", "")
+    openai_api_key: str = os.getenv("OPENAI_API_KEY", "")
 
     # Security
     encryption_key: str = os.getenv("ENCRYPTION_KEY", "default-dev-key-change-in-production!!")

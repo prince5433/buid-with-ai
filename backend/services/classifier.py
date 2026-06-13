@@ -7,8 +7,8 @@ Uses Google Gemini to classify documents across multiple dimensions.
 import json
 import logging
 from typing import Optional
-import google.generativeai as genai
 from config import settings
+from services.llm_provider import llm_provider
 
 logger = logging.getLogger(__name__)
 
@@ -59,17 +59,10 @@ IMPORTANT:
 
 
 class DocumentClassifier:
-    """Classifies documents using Google Gemini."""
+    """Classifies documents using LLM Provider."""
 
     def __init__(self):
-        self._model = None
-
-    def _get_model(self):
-        """Lazy-load the Gemini model."""
-        if self._model is None:
-            genai.configure(api_key=settings.gemini_api_key)
-            self._model = genai.GenerativeModel(settings.llm_model)
-        return self._model
+        pass
 
     def classify(
         self, text_content: str, filename: str, page_count: int = 1, has_tables: bool = False
@@ -94,34 +87,12 @@ class DocumentClassifier:
             return self._fallback_classification(filename, page_count, has_tables)
 
         try:
-            model = self._get_model()
             prompt = CLASSIFICATION_PROMPT.format(
                 filename=filename,
                 content=truncated,
             )
 
-            response = model.generate_content(
-                prompt,
-                generation_config=genai.GenerationConfig(
-                    temperature=0.1,
-                    max_output_tokens=1024,
-                ),
-            )
-
-            # Parse JSON response
-            result_text = response.text.strip()
-
-            # Remove potential markdown code block wrappers
-            if result_text.startswith("```"):
-                lines = result_text.split("\n")
-                # Remove first and last line if they're code block markers
-                if lines[0].startswith("```"):
-                    lines = lines[1:]
-                if lines and lines[-1].strip() == "```":
-                    lines = lines[:-1]
-                result_text = "\n".join(lines)
-
-            result = json.loads(result_text)
+            result = llm_provider.generate_json(prompt=prompt)
 
             # Validate and fix page_count
             if "content_characteristics" in result:
@@ -133,9 +104,6 @@ class DocumentClassifier:
             logger.info(f"Classified {filename} as {result.get('document_type', 'unknown')}")
             return result
 
-        except json.JSONDecodeError as e:
-            logger.error(f"Failed to parse classification JSON: {e}")
-            return self._fallback_classification(filename, page_count, has_tables)
         except Exception as e:
             logger.error(f"Classification failed: {e}")
             return self._fallback_classification(filename, page_count, has_tables)

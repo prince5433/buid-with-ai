@@ -20,7 +20,8 @@ langchain-google-genai==2.0.8
 langchain-community==0.3.14
 langchain-chroma==0.2.2
 langgraph==0.2.60
-google-generativeai==0.8.4
+openai>=1.0.0
+google-generativeai>=0.8.0
 
 # Embeddings & Vector Store
 sentence-transformers==3.3.1

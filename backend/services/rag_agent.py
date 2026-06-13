@@ -1,20 +1,9 @@
-"""
-Agentic RAG Service.
-
-Implements a multi-step RAG agent with:
-- Query routing (decide if retrieval is needed)
-- Retrieval from ChromaDB
-- Relevance grading
-- Answer synthesis with inline citations
-- Hallucination prevention
-"""
-
 import json
 import logging
 from typing import Optional
-import google.generativeai as genai
 from config import settings
 from services.embeddings import embeddings_service
+from services.llm_provider import llm_provider
 
 logger = logging.getLogger(__name__)
 
@@ -34,20 +23,6 @@ CRITICAL RULES — VIOLATIONS ARE UNACCEPTABLE:
 9. If the question is a greeting or meta-question (like "hi", "what can you do?"), respond naturally without needing context."""
 
 
-GRADING_PROMPT = """You are a strict relevance grader. Given a user question and a retrieved document chunk, determine if the chunk contains information that would help answer the question.
-
-Question: {question}
-
-Document chunk (from "{doc_name}", Page {page_num}):
----
-{chunk_text}
----
-
-Does this chunk contain information relevant to answering the question?
-Consider: direct answers, supporting context, related data, or partial information.
-Respond with ONLY "yes" or "no"."""
-
-
 ROUTING_PROMPT = """You are a query router. Given a user message, determine if it requires document retrieval or is a simple conversational message.
 
 User message: {message}
@@ -59,61 +34,26 @@ Respond with ONLY one word: "conversation" or "retrieval"."""
 
 
 class RAGAgent:
-    """Multi-step RAG agent with routing, grading, and citation generation."""
+    """Multi-step RAG agent with routing, and citation generation."""
 
     def __init__(self):
-        self._model = None
-
-    def _get_model(self):
-        """Lazy-load the Gemini model."""
-        if self._model is None:
-            genai.configure(api_key=settings.gemini_api_key)
-            self._model = genai.GenerativeModel(
-                settings.llm_model,
-                system_instruction=SYSTEM_PROMPT,
-            )
-        return self._model
+        pass
 
     def _route_query(self, message: str) -> str:
         """Step 1: Determine if the query needs retrieval or is conversational."""
         try:
-            model = self._get_model()
-            response = model.generate_content(
-                ROUTING_PROMPT.format(message=message),
-                generation_config=genai.GenerationConfig(
-                    temperature=0.0,
-                    max_output_tokens=10,
-                ),
+            response = llm_provider.generate_content(
+                prompt=ROUTING_PROMPT.format(message=message),
+                temperature=0.0,
+                max_tokens=10,
             )
-            route = response.text.strip().lower()
+            route = response.strip().lower()
             if route in ("conversation", "retrieval"):
                 return route
             return "retrieval"  # Default to retrieval
         except Exception as e:
             logger.warning(f"Routing failed: {e}, defaulting to retrieval")
             return "retrieval"
-
-    def _grade_chunk(self, question: str, chunk: dict) -> bool:
-        """Step 3: Grade if a retrieved chunk is relevant to the question."""
-        try:
-            model = self._get_model()
-            response = model.generate_content(
-                GRADING_PROMPT.format(
-                    question=question,
-                    doc_name=chunk["document_name"],
-                    page_num=chunk["page_number"],
-                    chunk_text=chunk["text"][:1000],
-                ),
-                generation_config=genai.GenerationConfig(
-                    temperature=0.0,
-                    max_output_tokens=5,
-                ),
-            )
-            return response.text.strip().lower().startswith("yes")
-        except Exception as e:
-            logger.warning(f"Grading failed: {e}, keeping chunk")
-            # If grading fails, keep chunks with decent scores
-            return chunk.get("score", 0) > 0.3
 
     def _generate_answer(
         self,
@@ -122,7 +62,6 @@ class RAGAgent:
         conversation_history: list[dict] = None,
     ) -> str:
         """Step 4: Generate answer with inline citations."""
-        model = self._get_model()
 
         # Build context from relevant chunks
         context_parts = []
@@ -153,21 +92,19 @@ USER QUESTION: {question}
 ANSWER (with inline citations):"""
 
         try:
-            response = model.generate_content(
-                prompt,
-                generation_config=genai.GenerationConfig(
-                    temperature=0.3,
-                    max_output_tokens=2048,
-                ),
+            response = llm_provider.generate_content(
+                prompt=prompt,
+                system_instruction=SYSTEM_PROMPT,
+                temperature=0.3,
+                max_tokens=2048,
             )
-            return response.text.strip()
+            return response.strip()
         except Exception as e:
             logger.error(f"Answer generation failed: {e}")
             return "I apologize, but I encountered an error while generating the answer. Please try again."
 
     def _handle_conversation(self, message: str, conversation_history: list[dict] = None) -> str:
         """Handle conversational (non-retrieval) messages."""
-        model = self._get_model()
 
         history_text = ""
         if conversation_history:
@@ -181,14 +118,13 @@ User: {message}
 Respond naturally. You are a document Q&A assistant. If asked what you can do, explain that you can answer questions about uploaded documents with citations to specific pages."""
 
         try:
-            response = model.generate_content(
-                prompt,
-                generation_config=genai.GenerationConfig(
-                    temperature=0.7,
-                    max_output_tokens=512,
-                ),
+            response = llm_provider.generate_content(
+                prompt=prompt,
+                system_instruction=SYSTEM_PROMPT,
+                temperature=0.7,
+                max_tokens=512,
             )
-            return response.text.strip()
+            return response.strip()
         except Exception as e:
             logger.error(f"Conversation response failed: {e}")
             return "Hello! I'm your document assistant. Upload documents and ask me questions about them!"
@@ -223,7 +159,7 @@ Respond naturally. You are a document Q&A assistant. If asked what you can do, e
             }
 
         # Step 2: Retrieve relevant chunks
-        retrieved_chunks = embeddings_service.query(message, n_results=10)
+        retrieved_chunks = embeddings_service.query(message, n_results=15)
 
         if not retrieved_chunks:
             return {
@@ -232,9 +168,9 @@ Respond naturally. You are a document Q&A assistant. If asked what you can do, e
                 "route": "retrieval",
             }
 
-        # Step 3: Select chunks (bypassing LLM grader to save API quota)
+        # Step 3: Select chunks (bypassing LLM grader to save API quota, using large context limit)
         relevant_chunks = []
-        for chunk in retrieved_chunks[:4]:  # Take top 4 chunks directly
+        for chunk in retrieved_chunks[:10]:  # Take top 10 chunks directly (OpenAI handles big context well)
             relevant_chunks.append(chunk)
 
         if not relevant_chunks:

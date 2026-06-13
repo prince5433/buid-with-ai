@@ -197,11 +197,11 @@ async def root():
 
 if __name__ == "__main__":
     import uvicorn
-    port = int(os.environ.get("PORT", 8000))
+    port = int(os.environ.get("PORT", 10000))
+    print(f"🚀 Starting server on 0.0.0.0:{port}", flush=True)
     uvicorn.run(
-        "main:app",
+        app,
         host="0.0.0.0",
         port=port,
-        reload=settings.debug,
         log_level="info",
     )

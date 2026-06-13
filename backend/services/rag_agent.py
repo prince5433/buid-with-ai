@@ -234,11 +234,11 @@ Respond naturally. You are a document Q&A assistant. If asked what you can do, e
 
         # Step 3: Grade chunks for relevance
         relevant_chunks = []
-        for chunk in retrieved_chunks:
+        for chunk in retrieved_chunks[:6]:  # Process top 6 chunks to save API calls
             if chunk["score"] > 0.5:
                 # High-confidence chunks skip grading
                 relevant_chunks.append(chunk)
-            elif chunk["score"] > 0.25:
+            elif chunk["score"] > 0.10:
                 # Medium-confidence chunks get graded
                 if self._grade_chunk(message, chunk):
                     relevant_chunks.append(chunk)

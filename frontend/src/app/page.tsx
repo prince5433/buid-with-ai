@@ -122,7 +122,8 @@ function useVoiceInput() {
   const [transcript, setTranscript] = useState("");
   const [interimTranscript, setInterimTranscript] = useState("");
   const [isSupported, setIsSupported] = useState(false);
-  const recognitionRef = useRef<ReturnType<typeof createRecognition> | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const recognitionRef = useRef<any>(null);
 
   useEffect(() => {
     const SpeechRecognition =
@@ -203,9 +204,7 @@ function useVoiceInput() {
   };
 }
 
-function createRecognition() {
-  return null;
-}
+
 
 // === Typing Indicator ===
 function TypingIndicator() {

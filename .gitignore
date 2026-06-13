@@ -10,13 +10,13 @@ build/
 # Environment
 .env
 .env.local
-.env.*.local
+!.env.local.example
+!.env.example
 venv/
 .venv/
 
 # Storage (encrypted files)
 backend/storage/
-*.enc
 
 # IDE
 .vscode/

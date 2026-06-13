@@ -12,7 +12,7 @@ from config import settings
 
 logger = logging.getLogger(__name__)
 
-CLASSIFICATION_PROMPT = """You are a document classifier. Analyze the following document content and classify it.
+CLASSIFICATION_PROMPT = """You are an expert document classifier. Analyze the following document content and classify it across multiple dimensions.
 
 DOCUMENT FILENAME: {filename}
 DOCUMENT CONTENT (first pages):
@@ -23,27 +23,38 @@ DOCUMENT CONTENT (first pages):
 Classify this document and respond with ONLY valid JSON matching this exact schema:
 
 {{
-  "document_type": "<one of: report, invoice, letter, form, academic_paper, legal, manual, memo, resume, presentation, other>",
-  "topic": "<one of: finance, healthcare, technology, legal, education, science, business, government, engineering, environment, other>",
+  "document_type": "<one of: report, invoice, letter, form, academic_paper, legal_document, manual, memo, resume, presentation, meeting_minutes, policy, medical_record, financial_statement, other>",
+  "topic": "<one of: finance, healthcare, technology, legal, education, science, business, government, engineering, environment, human_resources, marketing, operations, other>",
+  "sub_topic": "<more specific topic within the main topic, e.g., 'quarterly earnings' under finance>",
   "content_characteristics": {{
     "has_tables": <true/false>,
     "has_images": <true/false>,
     "has_handwriting": <true/false>,
     "is_scanned": <true/false>,
     "has_charts": <true/false>,
+    "has_signatures": <true/false>,
+    "has_formulas": <true/false>,
     "language": "<ISO 639-1 code, e.g., en>",
-    "page_count": <number>
+    "page_count": <number>,
+    "estimated_word_count": <approximate number>
   }},
   "sensitivity_level": "<one of: public, internal, confidential, restricted>",
+  "sensitivity_reason": "<why this sensitivity level was assigned, e.g., 'Contains financial projections and revenue data'>",
+  "industry_sector": "<one of: technology, finance, healthcare, energy, education, government, manufacturing, retail, legal, consulting, other>",
+  "document_purpose": "<one of: informational, decision_making, compliance, reference, training, communication, analysis, planning, other>",
+  "time_sensitivity": "<one of: current, historical, evergreen>",
   "summary": "<2-3 sentence summary of the document content>",
-  "key_entities": ["<entity1>", "<entity2>", "...up to 10 entities"],
+  "key_entities": ["<entity1>", "<entity2>", "...up to 10 key entities like company names, people, dates, amounts>"],
+  "key_topics": ["<topic1>", "<topic2>", "...up to 8 main topics discussed in the document>"],
+  "actionable_items": ["<action1>", "<action2>", "...any action items, deadlines, or follow-ups mentioned>"],
   "confidence_score": <0.0 to 1.0>
 }}
 
 IMPORTANT:
 - Respond with ONLY the JSON object, no markdown formatting, no code blocks.
 - If unsure about a field, make your best guess and reflect uncertainty in confidence_score.
-- For sensitivity_level, consider if the content contains personal data, financial data, or proprietary information.
+- For sensitivity_level, consider if the content contains personal data, financial data, medical data, or proprietary information.
+- For actionable_items, extract specific actions with deadlines if mentioned.
 """
 
 
@@ -154,8 +165,10 @@ class DocumentClassifier:
             "technology": ["tech", "software", "code", "api", "system", "data"],
             "healthcare": ["medical", "health", "patient", "clinical", "diagnosis"],
             "education": ["syllabus", "course", "assignment", "exam", "grade"],
-            "science": ["research", "study", "experiment", "analysis", "paper"],
+            "science": ["research", "study", "experiment", "analysis", "paper", "scientific"],
             "business": ["memo", "meeting", "proposal", "report", "strategy"],
+            "environment": ["environment", "impact", "ecological", "emission"],
+            "human_resources": ["employee", "handbook", "policy", "hr", "hiring"],
         }
 
         for t, keywords in topic_keywords.items():
@@ -166,18 +179,28 @@ class DocumentClassifier:
         return {
             "document_type": doc_type,
             "topic": topic,
+            "sub_topic": "general",
             "content_characteristics": {
                 "has_tables": has_tables,
                 "has_images": ext in ("jpg", "png", "jpeg", "tiff", "bmp"),
                 "has_handwriting": False,
                 "is_scanned": False,
                 "has_charts": False,
+                "has_signatures": False,
+                "has_formulas": False,
                 "language": "en",
                 "page_count": page_count,
+                "estimated_word_count": 0,
             },
             "sensitivity_level": "internal",
+            "sensitivity_reason": "Default classification — unable to determine via LLM",
+            "industry_sector": "other",
+            "document_purpose": "informational",
+            "time_sensitivity": "current",
             "summary": f"Document: {filename}",
             "key_entities": [],
+            "key_topics": [],
+            "actionable_items": [],
             "confidence_score": 0.3,
         }
 

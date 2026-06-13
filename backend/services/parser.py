@@ -7,6 +7,7 @@ Extracts text and renders page images for each page.
 
 import io
 import logging
+import hashlib
 import tempfile
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
@@ -177,14 +178,70 @@ class DocumentParser:
             return ""
 
     def _preprocess_for_ocr(self, image: Image.Image) -> Image.Image:
-        """Preprocess image for better OCR accuracy."""
-        # Convert to grayscale
+        """
+        Multi-stage image preprocessing for maximum OCR accuracy.
+        
+        Pipeline:
+        1. Convert to grayscale
+        2. Resize small images for better OCR
+        3. Enhance contrast
+        4. Adaptive thresholding (via OpenCV if available, else Pillow)
+        5. Noise removal
+        """
+        # Step 1: Convert to grayscale
         if image.mode != 'L':
             image = image.convert('L')
 
-        # Simple threshold for binarization
-        threshold = 128
-        image = image.point(lambda p: 255 if p > threshold else 0, '1')
+        # Step 2: Upscale small images (OCR works better on larger text)
+        min_dim = min(image.size)
+        if min_dim < 1000:
+            scale = max(2, 1500 // min_dim)
+            image = image.resize(
+                (image.size[0] * scale, image.size[1] * scale),
+                Image.Resampling.LANCZOS,
+            )
+
+        # Step 3: Contrast enhancement
+        from PIL import ImageEnhance, ImageFilter
+        enhancer = ImageEnhance.Contrast(image)
+        image = enhancer.enhance(1.8)
+
+        # Sharpen
+        enhancer = ImageEnhance.Sharpness(image)
+        image = enhancer.enhance(2.0)
+
+        # Step 4: Adaptive thresholding
+        try:
+            import cv2
+            import numpy as np
+            img_array = np.array(image)
+            # Gaussian adaptive threshold — excellent for uneven lighting
+            binary = cv2.adaptiveThreshold(
+                img_array, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+                cv2.THRESH_BINARY, 31, 10,
+            )
+            # Morphological noise removal (removes small dots/specks)
+            kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (2, 2))
+            binary = cv2.morphologyEx(binary, cv2.MORPH_CLOSE, kernel)
+            image = Image.fromarray(binary)
+        except ImportError:
+            # Fallback: simple Otsu-style threshold with Pillow
+            histogram = image.histogram()
+            total = sum(histogram)
+            current = 0
+            threshold = 128
+            for i in range(256):
+                current += histogram[i]
+                if current >= total * 0.5:
+                    threshold = i
+                    break
+            image = image.point(lambda p: 255 if p > threshold else 0, '1')
+
+        # Step 5: Light denoise
+        try:
+            image = image.filter(ImageFilter.MedianFilter(size=1))
+        except Exception:
+            pass
 
         return image
 
@@ -333,20 +390,38 @@ class DocumentParser:
         return buffer.getvalue()
 
     def _table_to_markdown(self, table: list) -> str:
-        """Convert a pdfplumber table to markdown format."""
+        """
+        Convert a pdfplumber table to structured markdown format.
+        
+        Preserves row/column structure, handles merged cells and
+        multi-line cell content. Output is a proper markdown table.
+        """
         if not table or not table[0]:
             return ""
 
+        # Determine column count from the widest row
+        col_count = max(len(row) for row in table if row)
+
         rows = []
         for row in table:
-            cells = [str(cell).replace("|", "\\|").strip() if cell else "" for cell in row]
+            if not row:
+                continue
+            # Pad short rows to match column count
+            cells = []
+            for j in range(col_count):
+                if j < len(row) and row[j] is not None:
+                    # Clean cell: escape pipes, collapse whitespace, strip
+                    cell = str(row[j]).replace("|", "\\|").replace("\n", " ").strip()
+                    cells.append(cell)
+                else:
+                    cells.append("")
             rows.append("| " + " | ".join(cells) + " |")
 
         if len(rows) < 1:
             return ""
 
-        # Add header separator after first row
-        header_sep = "| " + " | ".join(["---"] * len(table[0])) + " |"
+        # Build alignment separator (--- for each column)
+        header_sep = "| " + " | ".join(["---"] * col_count) + " |"
         rows.insert(1, header_sep)
 
         return "\n".join(rows)

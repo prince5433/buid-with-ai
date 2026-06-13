@@ -15,7 +15,7 @@ class Settings(BaseSettings):
 
     # Security
     encryption_key: str = os.getenv("ENCRYPTION_KEY", "default-dev-key-change-in-production!!")
-    allowed_origins: list[str] = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000").split(",")
+    allowed_origins: str = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000")
     max_file_size_mb: int = int(os.getenv("MAX_FILE_SIZE_MB", "50"))
     rate_limit_uploads: int = int(os.getenv("RATE_LIMIT_UPLOADS", "30"))
     rate_limit_chat: int = int(os.getenv("RATE_LIMIT_CHAT", "60"))

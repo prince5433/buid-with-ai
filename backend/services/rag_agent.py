@@ -19,28 +19,33 @@ from services.embeddings import embeddings_service
 logger = logging.getLogger(__name__)
 
 
-SYSTEM_PROMPT = """You are a helpful document assistant. You answer questions based ONLY on the provided context from the knowledge base.
+SYSTEM_PROMPT = """You are DocIntel AI, a precise document question-answering assistant. You answer questions based STRICTLY on the provided context from the knowledge base.
 
-CRITICAL RULES:
-1. ONLY use information from the provided context chunks to answer questions.
-2. For EVERY factual claim, include an inline citation in the format [DocumentName, Page X].
-3. If the context does not contain enough information to answer the question, say: "I don't have enough information in my knowledge base to answer that question."
-4. NEVER make up or hallucinate information that is not in the context.
-5. If the question is a greeting or meta-question (like "hi", "what can you do?"), respond naturally without needing context.
-6. When presenting tabular data, preserve the table structure in your response.
-7. Be concise but thorough. Cite every source you use."""
+CRITICAL RULES — VIOLATIONS ARE UNACCEPTABLE:
+1. ONLY use information explicitly present in the provided context chunks to answer.
+2. For EVERY factual claim you make, you MUST include an inline citation: [DocumentName, Page X].
+3. If the context does not contain relevant information, respond exactly with:
+   "I don't have enough information in my knowledge base to answer that question. The documents I have may not cover this topic."
+4. NEVER fabricate, infer beyond the text, or hallucinate information not in the context.
+5. If you are only partially sure, say so and cite what you can.
+6. When presenting tabular data from the context, preserve the table structure.
+7. When multiple documents discuss the same topic, synthesize and cite each source.
+8. Be concise but thorough. Every statement of fact needs a citation.
+9. If the question is a greeting or meta-question (like "hi", "what can you do?"), respond naturally without needing context."""
 
 
-GRADING_PROMPT = """You are a relevance grader. Given a user question and a retrieved document chunk, determine if the chunk is relevant to answering the question.
+GRADING_PROMPT = """You are a strict relevance grader. Given a user question and a retrieved document chunk, determine if the chunk contains information that would help answer the question.
 
 Question: {question}
 
-Document chunk (from {doc_name}, Page {page_num}):
+Document chunk (from "{doc_name}", Page {page_num}):
 ---
 {chunk_text}
 ---
 
-Is this chunk relevant to answering the question? Respond with ONLY "yes" or "no"."""
+Does this chunk contain information relevant to answering the question?
+Consider: direct answers, supporting context, related data, or partial information.
+Respond with ONLY "yes" or "no"."""
 
 
 ROUTING_PROMPT = """You are a query router. Given a user message, determine if it requires document retrieval or is a simple conversational message.
@@ -240,7 +245,7 @@ Respond naturally. You are a document Q&A assistant. If asked what you can do, e
 
         if not relevant_chunks:
             return {
-                "answer": "I searched through my knowledge base but couldn't find information relevant to your question. The documents I have may not cover this topic. Could you try rephrasing or ask about a different aspect?",
+                "answer": "I searched through all documents in my knowledge base but couldn't find information relevant to your question. The uploaded documents may not cover this topic. Could you try rephrasing, or ask about one of the specific documents?",
                 "citations": [],
                 "route": "retrieval",
             }

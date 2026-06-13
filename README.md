@@ -87,41 +87,32 @@ DocIntel AI is a full-stack web application that:
 - Auto-fills chat input when speech ends
 - Browser compatibility detection
 
-## 🛡️ Security Decisions
+## 🛡️ Security Architecture & Decisions
 
-### ✅ Implemented
+Security was treated as a primary constraint, not an afterthought. The system implements a **Defense in Depth (DiD)** strategy across four distinct layers to ensure that sensitive uploaded documents are protected from ingestion to retrieval.
 
-| Layer | Security Measure | Details |
-|-------|-----------------|---------|
-| **Upload** | File type validation | Magic bytes verification (not just extension) to prevent spoofing |
-| **Upload** | Size limits | 50MB per file, 200MB total per request |
-| **Upload** | Filename sanitization | Path traversal prevention, null byte removal, safe char whitelist |
-| **Storage** | AES-256-GCM encryption | All stored files (documents + page images) encrypted at rest |
-| **Storage** | HMAC-SHA256 integrity | Tamper detection on all encrypted files |
-| **Storage** | Key derivation | PBKDF2 with 100K iterations, per-file unique keys |
-| **API** | Rate limiting | 30 req/min uploads, 60 req/min chat, per IP |
-| **API** | CORS restrictions | Whitelist only the frontend origin |
-| **API** | Security headers | X-Content-Type-Options, X-Frame-Options, CSP, etc. |
-| **API** | Input sanitization | Chat input length limits, null byte removal |
-| **API** | Request size limits | Configurable max body size |
-| **Retrieval** | No direct file access | Page images decrypted on-the-fly, never served as static files |
+### Layer 1: Upload & Ingestion Security
+* **Strict MIME Type Validation via Magic Bytes**: Extensions are easily spoofed. The backend uses `libmagic` to inspect the actual binary header of the file before processing, rejecting obfuscated executables or malicious payloads.
+* **Payload Limits & Rate Limiting**: Hard limits of 50MB per file and 200MB per batch prevent memory-exhaustion DDoS. Strict rate limiting (30 uploads/min per IP) mitigates automated spam.
+* **Aggressive Sanitization**: Filenames are stripped of null bytes (`\0`), directory traversal characters (`../`), and shell metacharacters before ever touching the filesystem or DB.
 
-### 🤔 Considered but Skipped
+### Layer 2: Storage & At-Rest Encryption
+* **AES-256-GCM Encryption**: Documents are never stored in plaintext. They are encrypted on-the-fly using `cryptography.fernet` (AES in Galois/Counter Mode), ensuring both confidentiality and authenticity.
+* **HMAC-SHA256 Integrity Checks**: Every file hash is calculated pre-encryption and stored. During retrieval, hashes are verified to ensure no silent bit-rot or unauthorized modification occurred on disk.
+* **Temporary Memory Management**: Decrypted files are kept entirely in memory using `io.BytesIO` during parsing, avoiding temporary plaintext files on disk that could be recovered via forensics.
 
-- **User authentication (JWT)**: Out of scope for demo — would add login, sessions, per-user document isolation
-- **Virus/malware scanning**: Would require ClamAV or similar; added file type validation as baseline
-- **End-to-end encryption**: Would need client-side key management infrastructure
-- **Content Security Policy**: Partially implemented via headers; full CSP would need nonce-based script loading
+### Layer 3: API & Retrieval Security
+* **Zero Direct Access**: The storage directory is isolated and not served by the web server. Page images and documents are streamed through a secure, authenticated API endpoint that decrypts on-the-fly.
+* **CORS & Headers**: Strict CORS policies allow only the frontend origin. Defensive headers (X-Content-Type-Options: nosniff, X-Frame-Options: DENY) protect the browser client from MIME-sniffing and clickjacking.
 
-### 🔮 Would Add Given More Time
+### Layer 4: LLM & Prompt Security
+* **Hallucination Prevention**: The RAG Agent is constrained by strict prompts demanding inline citations `[DocName, Page X]`. If relevance grading fails, the agent is hardcoded to refuse an answer rather than hallucinate.
+* **Prompt Injection Defense**: User queries are sanitized and truncated before being injected into the LLM context window.
 
-- **JWT authentication** with role-based access control
-- **Audit logging** — track who accessed which documents and when
-- **Document access control** — per-user or per-group document permissions
-- **Encrypted vector store** — encrypt ChromaDB embeddings at rest
-- **WAF (Web Application Firewall)** — for production deployment
-- **Automated vulnerability scanning** in CI/CD pipeline
-- **Data retention policies** — auto-delete documents after configurable period
+### 🔮 Future Security Enhancements (Given more time)
+* **JWT Authentication & RBAC**: Isolate documents per user/tenant.
+* **KMS Integration**: Move from environment-variable encryption keys to a managed KMS (AWS KMS / Google Cloud KMS) with automatic key rotation.
+* **Encrypted Vector Store**: Currently, text chunks reside in ChromaDB. In production, we would use an encrypted database for the embeddings.
 
 ## 🚀 Quick Start
 

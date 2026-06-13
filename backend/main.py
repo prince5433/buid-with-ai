@@ -120,7 +120,7 @@ async def lifespan(app: FastAPI):
     logger.info("🚀 Starting Document Intelligence API...")
     logger.info(f"   Environment: {settings.app_env}")
     logger.info(f"   Storage: {settings.storage_path}")
-    logger.info(f"   Allowed origins: {settings.allowed_origins}")
+    logger.info(f"   Allowed origins: {settings.allowed_origins.split(',')}")
 
     # Ensure directories exist
     settings.ensure_directories()
@@ -148,7 +148,7 @@ app = FastAPI(
 # CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.allowed_origins,
+    allow_origins=settings.allowed_origins.split(","),
     allow_credentials=True,
     allow_methods=["GET", "POST", "DELETE", "OPTIONS"],
     allow_headers=["*"],
